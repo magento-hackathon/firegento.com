@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sales_pdf">
+            <group id="firegento_pdf" translate="label" sortOrder="100" showInDefault="1" showInStore="1"
+                    showInWebsite="1" type="text">
+                <label>PDF Creation</label>
+                    <field id="sender_address_bar" type="text" showInWebsite="1" showInStore="1" showInDefault="1"
+                            sortOrder="100" translate="label comment">
+                        <label>Sender Address Bar</label>
+                        <comment>Show address above shipping/invoice address</comment>
+                    </field>
+            </group>
+        </section>
+    </system>
+</config>
