@@ -38,15 +38,14 @@
                         <field id="headerblocks_position" type="select" showInWebsite="1" showInStore="1"
                                 sortOrder="500" showInDefault="1" translate="label comment">
                             <label>Header Blocks Position</label>
-                            <source_model>FireGento/Pdf/Model/System/Config/Source/Headerblocks</source_model>
+                            <source_model>FireGento\Pdf\Model\System\Config\Source\Headerblocks</source_model>
                             <comment><![CDATA[Left: Customer address left, Invoice details right. Right: Invoice details left, Customer address right.]]></comment>
                         </field>
-                <!---->
-                        <!--<field id="page_size" showInDefault="1" sortOrder="600" showInStore="1" showInWebsite="1"-->
-                                <!--type="select" translate="label">-->
-                            <!--<label>Page Size</label>-->
-                            <!--<source_model>firegento_pdf/system_config_source_pageSize</source_model>-->
-                        <!--</field>-->
+                        <field id="page_size" showInDefault="1" sortOrder="600" showInStore="1" showInWebsite="1"
+                                type="select" translate="label">
+                            <label>Page Size</label>
+                            <source_model>FireGento\Pdf\Model\System\Config\Source\Headerblocks\PageSize</source_model>
+                        </field>
             </group>
         </section>
     </system>

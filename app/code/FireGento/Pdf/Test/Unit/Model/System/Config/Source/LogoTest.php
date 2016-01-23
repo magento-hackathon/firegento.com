@@ -2,22 +2,17 @@
 
 namespace FireGento\Pdf\Model\System\Config\Source;
 
-use Magento\Framework\Option\ArrayInterface;
+use FireGento\Pdf\Model\System\Config\SourceTest;
 
-class LogoTest extends \PHPUnit_Framework_TestCase
+class LogoTest extends SourceTest
 {
-
-    public function testImplementsArrayInterface()
+    protected function setUp()
     {
-        $this->assertInstanceOf(
-            ArrayInterface::class,
-            new Logo()
-        );
+        $this->sourceModel = new Logo();
     }
 
-    public function testContainsAllNeeded()
+    public function testToOptionArray()
     {
-        $logo = new Logo();
         $this->assertEquals(
             [
                 [
@@ -38,7 +33,7 @@ class LogoTest extends \PHPUnit_Framework_TestCase
                 ],
             ],
 
-            $logo->toOptionArray()
+            $this->sourceModel->toOptionArray()
         );
     }
 }

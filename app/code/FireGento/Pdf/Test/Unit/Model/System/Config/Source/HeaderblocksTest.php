@@ -2,17 +2,15 @@
 
 namespace FireGento\Pdf\Model\System\Config\Source;
 
-use Magento\Framework\Option\ArrayInterface;
+use FireGento\Pdf\Model\System\Config\SourceTest;
 
-class HeaderblocksTest extends \PHPUnit_Framework_TestCase
+require_once __DIR__ . '/../SourceTest.php';
+
+class HeaderblocksTest extends SourceTest
 {
-
-    public function testImplementsArrayInterface()
+    protected function setUp()
     {
-        $this->assertInstanceOf(
-            ArrayInterface::class,
-            new Headerblocks()
-        );
+        $this->sourceModel = new Headerblocks();
     }
 
     public function testToOptionArray()
@@ -28,7 +26,7 @@ class HeaderblocksTest extends \PHPUnit_Framework_TestCase
                     'label' => 'Right',
                 ],
             ],
-            (new Headerblocks())->toOptionArray()
+            $this->sourceModel->toOptionArray()
         );
     }
 }
