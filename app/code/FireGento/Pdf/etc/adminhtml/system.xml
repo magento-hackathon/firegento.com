@@ -35,12 +35,12 @@
                             <frontend_class>validate-number-range number-range-1-100</frontend_class>
                             <comment><![CDATA[Resize or not the size of your logo in the header. Value possible from 1 (minimum size) to 100 (full size). Values in percent.]]></comment>
                         </field>
-                        <!--<field id="headerblocks_position" type="select" showInWebsite="1" showInStore="1"-->
-                                <!--sortOrder="500" showInDefault="1" translate="label comment">-->
-                            <!--<label>Header Blocks Position</label>-->
-                            <!--<source_model>firegento_pdf/system_config_source_headerblocks</source_model>-->
-                            <!--<comment><![CDATA[Left: Customer address left, Invoice details right. Right: Invoice details left, Customer address right.]]></comment>-->
-                        <!--</field>-->
+                        <field id="headerblocks_position" type="select" showInWebsite="1" showInStore="1"
+                                sortOrder="500" showInDefault="1" translate="label comment">
+                            <label>Header Blocks Position</label>
+                            <source_model>FireGento/Pdf/Model/System/Config/Source/Headerblocks</source_model>
+                            <comment><![CDATA[Left: Customer address left, Invoice details right. Right: Invoice details left, Customer address right.]]></comment>
+                        </field>
                 <!---->
                         <!--<field id="page_size" showInDefault="1" sortOrder="600" showInStore="1" showInWebsite="1"-->
                                 <!--type="select" translate="label">-->
