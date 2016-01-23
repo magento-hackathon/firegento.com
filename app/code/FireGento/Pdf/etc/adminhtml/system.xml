@@ -47,6 +47,310 @@
                     <source_model>FireGento\Pdf\Model\System\Config\Source\Headerblocks\PageSize</source_model>
                 </field>
             </group>
+            <group id="firegento_pdf_fonts" type="test" showInWebsite="1" showInStore="1" showInDefault="1"
+                    sortOrder="200" translate="label">
+                    <label>Fonts for PDF Creation</label>
+                    <field id="upload_fonts" sortOrder="400" showInDefault="1" showInStore="1" showInWebsite="1"
+                            type="select" translate="label comment">
+                        <label>Upload own fonts</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[You can upload your own fonts (*.ttf) instead of using Zends Helvetica]]></comment>
+                    </field>
+                    <field id="regular_font" type="file" showInWebsite="1" showInStore="1" showInDefault="1"
+                            sortOrder="500" translate="label">
+                        <label>Regular font</label>
+                        <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                        <upload_dir>media/firegento_pdf/fonts</upload_dir>
+                        <depends>
+                            <field id="upload_fonts"/>
+                        </depends>
+                    </field>
+                    <field id="bold_font" sortOrder="600" showInDefault="1" showInStore="1" showInWebsite="1"
+                            type="file" translate="label">
+                        <label>Bold font</label>
+                        <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                        <upload_dir>media/firegento_pdf/fonts</upload_dir>
+                        <depends>
+                            <field id="upload_fonts">1</field>
+                        </depends>
+                    </field>
+                    <field id="italic_font" type="file" showInWebsite="1" showInStore="1" showInDefault="1"
+                            sortOrder="700" translate="label">
+                        <label>Italic font</label>
+                        <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                        <upload_dir scope_info="1">media/firegento_pdf/fonts</upload_dir>
+                        <depends>
+                            <field id="upload_fonts">1</field>
+                        </depends>
+                    </field>
+                </group>
+                <group id="invoice" sortOrder="300">
+                    <field id="engine" translate="label" sortOrder="0" showInDefault="1" showInStore="1"
+                            showInWebsite="1" type="select">
+                        <label>PDF Engine</label>
+                        <source_model>firegento_pdf/system_config_source_invoice_engine</source_model>
+                    </field>
+                    <field id="show_customer_number" type="select" showInWebsite="1" showInStore="1"
+                            showInDefault="1" sortOrder="35" translate="label">
+                        <label>Show Customer Number</label>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                    </field>
+                    <field id="guestorder_customer_number" sortOrder="36" showInDefault="1" showInStore="1"
+                            showInWebsite="1" type="text" translate="label">
+                        <label>Customer number for guest orders</label>
+                        <comment><![CDATA[Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.]]></comment>
+                        <depends>
+                            <field id="show_customer_number">1</field>
+                        </depends>
+                    </field>
+                    <field id="show_customer_vatnumber" type="select" showInWebsite="1" showInStore="1"
+                            showInDefault="1" sortOrder="45" translate="label">
+                        <label>Show Customer TAX/VAT Number</label>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                    </field>
+                    <field id="customer_number_field" sortOrder="36" showInDefault="1" showInStore="1"
+                            showInWebsite="1" type="select" translate="label">
+                        <label>Which customer number</label>
+                        <source_model>firegento_pdf/system_config_source_customer_number</source_model>
+                        <depends>
+                            <field id="show_customer_number">1</field>
+                        </depends>
+                    </field>
+                    <field id="show_date_notice" type="select" showInWebsite="1" showInStore="1" showInDefault="1"
+                            sortOrder="10" translate="label comment">
+                        <label>Show Date Notice</label>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                        <comment>Show Notice: Invoice date is equal to delivery date.</comment>
+                    </field>
+                    <field id="maturity" sortOrder="30" showInDefault="1" showInStore="1" showInWebsite="1"
+                            type="test" translate="label comment">
+                        <label>Invoice Maturity</label>
+                        <comment>Days after the invoice is due. Leave this field blank to hide the message on the invoice.</comment>
+                    </field>
+                    <field id="payment_method_position" type="select" showInWebsite="1" showInStore="1"
+                            showInDefault="1" sortOrder="40" translate="label comment">
+                        <label>Show Payment Method</label>
+                        <source_model>firegento_pdf/system_config_source_payment</source_model>
+                        <comment>Position of payment method on invoice.</comment>
+                    </field>
+                    <field id="shipping_method_position" sortOrder="50" showInDefault="1" showInStore="1"
+                            showInWebsite="1" type="select" translate="label comment">
+                        <label>Show Shipping Method</label>
+                        <source_model>firegento_pdf/system_config_source_shipping</source_model>
+                        <comment>Position of shipping method on invoice.</comment>
+                    </field>
+                    <field id="show_comments" type="select" showInWebsite="1" showInStore="1" showInDefault="1"
+                            sortOrder="60" translate="label">
+                        <label>Show Invoice Comments</label>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                    </field>
+                    <field id="note" sortOrder="70" showInDefault="1" showInStore="1" showInWebsite="1"
+                            type="textarea" translate="label comment">
+                        <label>Note</label>
+                        <comment>Printed on every invoice.</comment>
+                    </field>
+                    <field id="item_price_column_order" showInWebsite="1" showInStore="1" showInDefault="1"
+                            sortOrder="80" translate="label">
+                        <label>Order of price columns of items</label>
+                        <frontend_model>firegento_pdf/adminhtml_columnOrder</frontend_model>
+                    </field>
+                    <field id="show_item_discount" sortOrder="90" showInDefault="1" showInStore="1"
+                            showInWebsite="1" type="select" translate="label">
+                        <label>Show Item Discount</label>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                    </field>
+                    <field id="order_id_as_barcode" type="select" showInWebsite="1" showInStore="1"
+                            showInDefault="1" sortOrder="100" translate="label comment">
+                        <label>Show Order ID as Barcode</label>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                        <comment>Prints the order ID as a barcode on the right hand side.</comment>
+                    </field>
+                    <field id="filename_export_pattern" sortOrder="120" showInDefault="1" showInStore="1"
+                            showInWebsite="1" type="text" translate="label comment">
+                        <label>Filename Export Pattern</label>
+                        <comment>available placeholders: {{invoice_id}}, {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
+                    </field>
+                    <field id="filename_export_pattern_for_multiple_documents" type="text" showInWebsite="1"
+                            showInStore="1" showInDefault="1" sortOrder="140" translate="label comment">
+                        <label>Filename Export Pattern for Multiple Documents</label>
+                        <comment>available placeholder: strftime() date formats like "%Y"</comment>
+                    </field>
+                    <field id="shipping_country_notes" sortOrder="160" showInDefault="1" showInStore="1"
+                            showInWebsite="1" translate="label comment">
+                        <label>Add notes based on the shipping country</label>
+                        <frontend_model>firegento_pdf/adminhtml_system_config_form_field_notes</frontend_model>
+                        <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                        <comment>Here you can add notes to the invoice based on the shipping country of the order.</comment>
+                    </field>
+                </group>
+                <group id="shipment" sortOrder="400">
+                        <field id="engine" sortOrder="0" showInWebsite="1" showInStore="1" showInDefault="1"
+                                type="select" translate="label">
+                            <label>PDF Engine</label>
+                            <source_model>firegento_pdf/system_config_source_shipment_engine</source_model>
+                        </field>
+                        <show_customer_number translate="label">
+                            <label>Show Customer Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_customer_number>
+                        <guestorder_customer_number translate="label">
+                            <label>Customer number for guest orders</label>
+                            <comment><![CDATA[Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.]]></comment>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><show_customer_number>1</show_customer_number></depends>
+                        </guestorder_customer_number>
+                        <show_customer_vatnumber translate="label">
+                            <label>Show Customer TAX/VAT Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_customer_vatnumber>
+                        <shipping_method_position translate="label comment">
+                            <label>Show Shipping Method</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_shipping</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Position of shipping method on shipment.</comment>
+                        </shipping_method_position>
+                        <show_comments translate="label">
+                            <label>Show Shipment Comments</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_comments>
+                        <note translate="label comment">
+                            <label>Note</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Printed on every shipment.</comment>
+                        </note>
+                        <order_id_as_barcode translate="label comment">
+                            <label>Show Order ID as Barcode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Prints the order ID as a barcode on the right hand side.</comment>
+                        </order_id_as_barcode>
+                        <filename_export_pattern translate="label comment">
+                            <label>Filename Export Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholders: {{shipment_id}}, {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern>
+                        <filename_export_pattern_for_multiple_documents translate="label comment">
+                            <label>Filename Export Pattern for Multiple Documents</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholder: strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern_for_multiple_documents>
+                    </fields>
+                </group>
+                <creditmemo>
+                    <sort_order>500</sort_order>
+                    <fields>
+                        <engine translate="label">
+                            <label>PDF Engine</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_creditmemo_engine</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </engine>
+                        <show_customer_number translate="label">
+                            <label>Show Customer Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_customer_number>
+                        <guestorder_customer_number translate="label">
+                            <label>Customer number for guest orders</label>
+                            <comment><![CDATA[Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.]]></comment>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><show_customer_number>1</show_customer_number></depends>
+                        </guestorder_customer_number>
+                        <show_customer_vatnumber translate="label">
+                            <label>Show Customer TAX/VAT Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_customer_vatnumber>
+                        <show_comments translate="label">
+                            <label>Show Credit Memo Comments</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_comments>
+                        <note translate="label comment">
+                            <label>Note</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Printed on every credit memo.</comment>
+                        </note>
+                        <filename_export_pattern translate="label comment">
+                            <label>Filename Export Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholders: {{creditmemo_id}}, {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern>
+                        <filename_export_pattern_for_multiple_documents translate="label comment">
+                            <label>Filename Export Pattern for Multiple Documents</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholder: strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern_for_multiple_documents>
+                    </fields>
+                </creditmemo>
         </section>
     </system>
-</config>
+        </config>
