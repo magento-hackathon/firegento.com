@@ -56,6 +56,7 @@ module.exports = {
         name: 'Firegento/firegento',
         locale: 'de_DE',
         files: [
+            'css/styles-m',
             'css/styles-l'
         ],
         dsl: 'less'
