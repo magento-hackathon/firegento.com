@@ -53,7 +53,7 @@ module.exports = {
     },
     firegento: {
         area: 'frontend',
-        name: 'Firegento/default',
+        name: 'Firegento/firegento',
         locale: 'de_DE',
         files: [
             'css/styles-l'
