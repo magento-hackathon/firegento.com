@@ -2,8 +2,18 @@
 
 namespace FireGento\Pdf\Model\System\Config\Source;
 
+use Magento\Framework\Option\ArrayInterface;
+
 class LogoTest extends \PHPUnit_Framework_TestCase
 {
+
+    public function testImplementsArrayInterface()
+    {
+        $this->assertInstanceOf(
+            ArrayInterface::class,
+            new Logo()
+        );
+    }
 
     public function testContainsAllNeeded()
     {
