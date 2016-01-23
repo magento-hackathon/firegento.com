@@ -12,40 +12,40 @@
             <group id="firegento_pdf" translate="label" sortOrder="100" showInDefault="1" showInStore="1"
                     showInWebsite="1" type="text">
                 <label>PDF Creation</label>
-                    <field id="sender_address_bar" type="text" showInWebsite="1" showInStore="1" showInDefault="1"
-                            sortOrder="100" translate="label comment">
-                        <label>Sender Address Bar</label>
-                        <comment>Show address above shipping/invoice address</comment>
-                    </field>
-                    <field id="show_footer" type="select" showInDefault="1" showInStore="1" showInWebsite="1"
-                            sortOrder="200" translate="label comment">
-                            <label>Show Footer</label>
-                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                            <comment><![CDATA[Show Imprint. Compatible with <a href="http://www.magentocommerce.com/magento-connect/firegento-magesetup.html">MageSetup</a> or GermanSetup (not anymore maintained, replaced by MageSetup)]]></comment>
-                        </field>
-                        <field id="logo_position" type="select" showInWebsite="1" showInStore="1" sortOrder="300"
-                                showInDefault="1" translate="label comment">
-                            <label>Logo Position</label>
-                            <source_model>FireGento\Pdf\Model\System\Config\Source\Logo</source_model>
-                            <comment><![CDATA[Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.]]></comment>
-                        </field>
-                        <field id="logo_ratio" type="text" showInDefault="1" sortOrder="400" showInStore="1"
-                                showInWebsite="1" translate="label comment">
-                            <label>Logo Ratio</label>
-                            <frontend_class>validate-number-range number-range-1-100</frontend_class>
-                            <comment><![CDATA[Resize or not the size of your logo in the header. Value possible from 1 (minimum size) to 100 (full size). Values in percent.]]></comment>
-                        </field>
-                        <field id="headerblocks_position" type="select" showInWebsite="1" showInStore="1"
-                                sortOrder="500" showInDefault="1" translate="label comment">
-                            <label>Header Blocks Position</label>
-                            <source_model>FireGento\Pdf\Model\System\Config\Source\Headerblocks</source_model>
-                            <comment><![CDATA[Left: Customer address left, Invoice details right. Right: Invoice details left, Customer address right.]]></comment>
-                        </field>
-                        <field id="page_size" showInDefault="1" sortOrder="600" showInStore="1" showInWebsite="1"
-                                type="select" translate="label">
-                            <label>Page Size</label>
-                            <source_model>FireGento\Pdf\Model\System\Config\Source\Headerblocks\PageSize</source_model>
-                        </field>
+                <field id="sender_address_bar" type="text" showInWebsite="1" showInStore="1" showInDefault="1"
+                        sortOrder="100" translate="label comment">
+                    <label>Sender Address Bar</label>
+                    <comment>Show address above shipping/invoice address</comment>
+                </field>
+                <field id="show_footer" type="select" showInDefault="1" showInStore="1" showInWebsite="1"
+                        sortOrder="200" translate="label comment">
+                    <label>Show Footer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Show Imprint. Compatible with <a href="http://www.magentocommerce.com/magento-connect/firegento-magesetup.html">MageSetup</a> or GermanSetup (not anymore maintained, replaced by MageSetup)]]></comment>
+                </field>
+                <field id="logo_position" type="select" showInWebsite="1" showInStore="1" sortOrder="300"
+                        showInDefault="1" translate="label comment">
+                    <label>Logo Position</label>
+                    <source_model>FireGento\Pdf\Model\System\Config\Source\Logo</source_model>
+                    <comment><![CDATA[Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.]]></comment>
+                </field>
+                <field id="logo_ratio" type="text" showInDefault="1" sortOrder="400" showInStore="1"
+                        showInWebsite="1" translate="label comment">
+                    <label>Logo Ratio</label>
+                    <frontend_class>validate-number-range number-range-1-100</frontend_class>
+                    <comment><![CDATA[Resize or not the size of your logo in the header. Value possible from 1 (minimum size) to 100 (full size). Values in percent.]]></comment>
+                </field>
+                <field id="headerblocks_position" type="select" showInWebsite="1" showInStore="1"
+                        sortOrder="500" showInDefault="1" translate="label comment">
+                    <label>Header Blocks Position</label>
+                    <source_model>FireGento\Pdf\Model\System\Config\Source\Headerblocks</source_model>
+                    <comment><![CDATA[Left: Customer address left, Invoice details right. Right: Invoice details left, Customer address right.]]></comment>
+                </field>
+                <field id="page_size" showInDefault="1" sortOrder="600" showInStore="1" showInWebsite="1"
+                        type="select" translate="label">
+                    <label>Page Size</label>
+                    <source_model>FireGento\Pdf\Model\System\Config\Source\Headerblocks\PageSize</source_model>
+                </field>
             </group>
         </section>
     </system>
