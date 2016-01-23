@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b0ac4853fc439864f14360917a3559b8",
-    "content-hash": "abeb5013e88d13ec70425f7672651347",
+    "hash": "53bbe55a9013b1cbad4214ace82c5b32",
+    "content-hash": "8d1397e3d539a8d9156c66f26b9578b1",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -7842,6 +7842,34 @@
             "time": "2015-10-07 00:20:04"
         },
         {
+            "name": "magento/data-migration-tool",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/magento/data-migration-tool-ce",
+                "reference": "092857123e864951beee3041362920a0b0375c79"
+            },
+            "require": {
+                "magento/framework": "~100.0.0",
+                "monolog/monolog": "~1.16.0",
+                "symfony/console": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Migration\\": [
+                        "src/Migration",
+                        "tests/unit/testsuite/Migration"
+                    ]
+                },
+                "files": [
+                    "src/Migration/cli_commands.php"
+                ]
+            },
+            "description": "Migration Tool",
+            "time": "2015-11-23 13:03:40"
+        },
+        {
             "name": "pdepend/pdepend",
             "version": "2.0.6",
             "source": {
@@ -9022,7 +9050,8 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
-        "phpmd/phpmd": 0
+        "phpmd/phpmd": 0,
+        "magento/data-migration-tool": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

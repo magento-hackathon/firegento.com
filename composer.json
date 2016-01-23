@@ -7,12 +7,16 @@
         "OSL-3.0",
         "AFL-3.0"
     ],
-    "repositories": [
-        {
+    "repositories": {
+        "0": {
             "type": "composer",
             "url": "https://repo.magento.com/"
+        },
+        "data-migration-tool": {
+            "type": "git",
+            "url": "https://github.com/magento/data-migration-tool-ce"
         }
-    ],
+    },
     "require": {
         "magento/product-community-edition": "2.0.*",
         "composer/composer": "@alpha",
@@ -44,7 +48,8 @@
         "pdepend/pdepend": "2.0.6",
         "sjparkinson/static-review": "~4.1",
         "fabpot/php-cs-fixer": "~1.2",
-        "lusitanian/oauth": "~0.3 <=0.7.0"
+        "lusitanian/oauth": "~0.3 <=0.7.0",
+        "magento/data-migration-tool": "dev-master"
     },
     "config": {
         "use-include-path": true
