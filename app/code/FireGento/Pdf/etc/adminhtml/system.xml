@@ -200,7 +200,9 @@
                            showInWebsite="1" translate="label comment">
                         <label>Customer number for guest orders</label>
                         <comment><![CDATA[Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.]]></comment>
-                        <depends><show_customer_number>1</show_customer_number></depends>
+                        <depends>
+                            <field id="show_customer_number">1</field>
+                        </depends>
                     </field>
                     <field id="show_customer_vatnumber" sortOrder="45" showInDefault="1" showInStore="1"
                            showInWebsite="1" type="select" translate="label">
@@ -255,7 +257,9 @@
                            showInWebsite="1" translate="label">
                         <label>Customer number for guest orders</label>
                         <comment><![CDATA[Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.]]></comment>
-                        <depends><show_customer_number>1</show_customer_number></depends>
+                        <depends>
+                            <field id="show_customer_number">1</field>
+                        </depends>
                     </field>
                     <field id="show_customer_vatnumber" sortOrder="45" showInDefault="1" showInStore="1"
                            showInWebsite="1" type="select" translate="label">
