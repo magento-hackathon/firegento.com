@@ -2,6 +2,7 @@
 
 namespace FireGento\Pdf\Model\System\Config\Backend;
 
+<<<<<<< HEAD
 class Font extends \Magento\Config\Model\Config\Backend\File
 {
 
@@ -10,6 +11,18 @@ class Font extends \Magento\Config\Model\Config\Backend\File
             'otf',
             'ttf',
         );
+=======
+use Magento\Config\Model\Config\Backend\File;
+
+
+class Font extends File
+{
+
+    private $_allowedExtensions = array(
+        'otf',
+        'ttf',
+      );
+>>>>>>> 24c12c32097c00434df9b1b4f1957b3d9ab80ed2
 
     /**
      * Returns the allowed font extensions.
@@ -20,4 +33,8 @@ class Font extends \Magento\Config\Model\Config\Backend\File
     {
         return $this->_allowedExtensions;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 24c12c32097c00434df9b1b4f1957b3d9ab80ed2
